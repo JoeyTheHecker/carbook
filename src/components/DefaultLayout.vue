@@ -1,5 +1,6 @@
 <template>
-
+    <PageHeader />
+    <PageFooter />
 </template>
 
 <script>
