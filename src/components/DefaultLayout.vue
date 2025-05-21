@@ -1,5 +1,8 @@
 <template>
     <PageHeader />
+    <main>
+        <router-view></router-view>
+    </main>
     <PageFooter />
 </template>
 

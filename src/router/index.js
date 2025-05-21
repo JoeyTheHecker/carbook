@@ -7,17 +7,17 @@ const routes = [
     {
         path: "/",
         component: DefaultLayout,
-        Children: [
+        children: [
             {
                 path: "",
                 name: "home",
                 component: HomePage,
 
-            }
-        ]
+            },
+        ],
 
-    }
-]
+    },
+];
 
 const router = createRouter({
     history: createWebHistory(),
