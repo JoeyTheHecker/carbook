@@ -3,7 +3,12 @@
     <h1>Header </h1>
 </template>
 
-<script setup>
+<script>
 import PageLogo from './composables/PageLogo.vue';
 
+export default {
+    components: {
+        PageLogo
+    }
+}
 </script>
