@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { onBeforeMount, onMounted, ref } from 'vue';
 
 export default {
     setup() {
@@ -17,8 +17,15 @@ export default {
 
         const handleScroll = () => {
             isScrolled.value = window.scrollY > 0
-            isMobile.value = window.innerWidth < 50
         }
+
+        onMounted(() => {
+            window.addEventListener('scroll', handleScroll)
+        })
+
+        onBeforeMount(() => {
+            window.removeEventListener('scroll', handleScroll)
+        })
     }
 }
 </script>
