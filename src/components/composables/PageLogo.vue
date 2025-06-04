@@ -2,7 +2,7 @@
     <router-link to="">
         <h1 class="uppercase text-xl font-bold cursor-pointer">
             <span :class="carClass">Car</span>
-            <span>Book</span>
+            <span class="text-green-500">Book</span>
         </h1>
     </router-link>
 </template>
@@ -21,7 +21,7 @@ export default {
 
         onMounted(() => {
             window.addEventListener('scroll', handleScroll)
-        })
+        }) 
 
         onBeforeUnmount(() => {
             window.removeEventListener('scroll', handleScroll)
@@ -31,6 +31,10 @@ export default {
             if(isMobile.value) return "text-black"
             return isScrolled.value ? "text-black" : "text-white"
         })
+
+        return {
+            carClass
+        }
     }
 }
 </script>
