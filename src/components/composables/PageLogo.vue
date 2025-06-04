@@ -1,14 +1,14 @@
 <template>
     <router-link to="">
         <h1 class="uppercase text-xl font-bold cursor-pointer">
-            <span>Car</span>
+            <span :class="carClass">Car</span>
             <span>Book</span>
         </h1>
     </router-link>
 </template>
 
 <script>
-import { onBeforeMount, onMounted, ref } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 
 export default {
     setup() {
@@ -16,15 +16,20 @@ export default {
         const isMobile = ref(window.innerWidth < 760)
 
         const handleScroll = () => {
-            isScrolled.value = window.scrollY > 0
+            isScrolled.value = window.scrollY > 50
         }
 
         onMounted(() => {
             window.addEventListener('scroll', handleScroll)
         })
 
-        onBeforeMount(() => {
+        onBeforeUnmount(() => {
             window.removeEventListener('scroll', handleScroll)
+        })
+
+        const carClass = computed(() => {
+            if(isMobile.value) return "text-black"
+            return isScrolled.value ? "text-black" : "text-white"
         })
     }
 }
